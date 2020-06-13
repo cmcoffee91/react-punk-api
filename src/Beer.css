@@ -1,0 +1,29 @@
+#container{
+    display: flex;
+    flex-direction: row;
+}
+
+#leftRow{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    
+}
+
+#rightRow{
+    padding: 8px;
+}
+
+
+img{
+    height: 300px;
+    width: 150px;
+}
+
+#container{
+    border-bottom: 4px dashed orange;
+}
+
+strong{
+    color:orange;
+}
