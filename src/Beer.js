@@ -2,9 +2,16 @@ import React from "react";
 import './Beer.css';
 
 const Beer = (props) => {
+    let likeString = "Unlike";
+    if(!props.liked){
+        likeString = "Like";
+    }
   return (
     <div id="container">
         <div id="leftRow">
+            <div>
+                <button onClick={() => props.likedBeer(props.index)}>{likeString}</button>
+            </div>
             <div id="name">
                 <strong>Name:</strong><br></br>{props.name}
             </div>
