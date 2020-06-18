@@ -6,6 +6,10 @@
 #leftRow{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
     padding: 8px;
     
 }
@@ -26,4 +30,22 @@ img{
 
 strong{
     color:orange;
+}
+
+#listData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#row{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    padding: 4px;
+    justify-content: space-evenly;
+}
+
+#brewers_tips{
+    padding:4px;
 }

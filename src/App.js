@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Beer from './Beer';
 
@@ -11,18 +10,19 @@ function App() {
   const [beersLiked, setBeersLiked] = useState([]);
 
   useEffect(() => {
-    loadBeers();
+    const loadBeers = async () => {
+      const response = await fetch(URL);
+      const data = await response.json();
+      setBeers(data);
+      for(let i in beers){
+        beersLiked[i] = false;
+      }
+    }
+    loadBeers().then(r => console.log(""));
   }, []);
 
 
-  const loadBeers = async () => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    setBeers(data);
-    for(var i in beers){
-      beersLiked[i] = false;
-    }
-  }
+
 
 
   const likedBeer = (index) => {
@@ -42,8 +42,8 @@ function App() {
     <div className="App">
       <header className="App-header">
       {beers.map((beer, index) => (
-        
-        <Beer key={index} index={index} name={beer.name} imageUrl={beer.image_url} tagline={beer.tagline} description={beer.description}  brewers_tips={beer.brewers_tips} likedBeer={likedBeer} liked={beersLiked[index]} />
+
+        <Beer key={index} index={index}  likedBeer={likedBeer} liked={beersLiked[index]} beer={beer} />
       ))}
       </header>
     </div>
